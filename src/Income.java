@@ -1,4 +1,12 @@
+/*
+Author Gil Silva
+Application that calculates the increase of income
+based on annual rate and principal provided by user
+Java Boot Camp
+ */
+
 import java.util.Scanner;
+
 
 public class Income {
     public static void main(String[] args){
@@ -12,16 +20,19 @@ public class Income {
 
         double rate = percent/100;
 
-        System.out.println("Enter number f years: ");
-        double years = input.nextDouble();
+        System.out.println("Enter number of years: ");
+        int years = input.nextInt();
 
-        double t = years/12;
+        //Formula for compound interest
+        // futureValue = principal x (1+ interest/ frequency)^time
 
-        double calculate = ((income * (1 + rate/years))*(t*years)) - income;
+        double newIncome = income*(Math.pow((1+rate),years));
+        System.out.printf("Based on the information that you provided your current income of $%.2f", income);
+        System.out.println("\nwith increase rate of " + percent + "% per year in " + years + " years will be ");
+        System.out.printf("$%.2f", newIncome);
 
-        System.out.println(calculate);
 
-        //int i = 0;
+
     }
 }
 
